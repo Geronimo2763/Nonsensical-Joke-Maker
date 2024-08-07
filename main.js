@@ -106,7 +106,7 @@ const adverbs = [
     "incredibly",
 ];
 
-const concreteNouns = [
+const nouns = [
     "table",
     "chair",
     "book",
@@ -223,10 +223,21 @@ const verbs = [
     "end",
 ];
 
-//What do you call a {adj} {noun} that is {verb} {adverb} past a {location-noun}? - {number} {adj} {noun}
+
+//*TEST
+/*
+const adjectives = ["red","blue"]
+const adverbs = ["slowly"]
+const nouns = ["cat","mat","dogy"]
+const locations = ["roof","house"]
+const verbs = ["crawl"]
+*/
+
+//What do you call a {adj} {noun} that  {verb} {adverb} past a {location-noun}? - {number} {adj} {noun}
 
 const getRandomElement = (arr) => {
     const index = Math.floor(Math.random() * arr.length);
+
     return arr[index];
 };
 
@@ -234,11 +245,11 @@ const createRndJoke = () => {
     let location = getRandomElement(locations);
     let punchNoun = getRandomElement(nouns);
     if (punchNoun[punchNoun.length - 1] === "y") {
-        punchNoun = punchNoun.slice(punchNoun.length - 1) + "ies";
+        punchNoun = punchNoun.slice(0,punchNoun.length - 1) + "ies";
     } else if (
         punchNoun[punchNoun.length - 1] !== "s" &&
-        punchNoun[punchNoun.length - 1] !== "es" &&
-        punchNoun[punchNoun.length - 1] !== "ies"
+        punchNoun.slice(punchNoun.length - 2) !== "es" &&
+        punchNoun.slice(punchNoun.length - 3) !== "ies"
     ) {
         punchNoun += "s";
     }
@@ -250,8 +261,10 @@ const createRndJoke = () => {
         } ${location}`,
         `${Math.floor(Math.random() * 100) + 2} ${getRandomElement(
             adjectives
-        )} ${punchNoun}s! 🤣👌👍`,
+        )} ${punchNoun}! 🤣👌👍`,
     ];
 };
 
-console.log(createRndJoke());
+const joke = createRndJoke();
+console.log(joke[0]+"...");
+console.log(joke[1])

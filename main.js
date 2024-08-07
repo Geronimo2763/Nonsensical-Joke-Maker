@@ -69,19 +69,11 @@ const adverbs = [
     "quietly",
     "softly",
     "hardly",
-    "fast",
-    "slow",
-    "well",
     "badly",
     "really",
     "truly",
-    "always",
-    "never",
-    "often",
-    "sometimes",
     "usually",
     "rarely",
-    "seldom",
     "frequently",
     "occasionally",
     "constantly",
@@ -100,8 +92,6 @@ const adverbs = [
     "partly",
     "mostly",
     "nearly",
-    "almost",
-    "very",
     "extremely",
     "incredibly",
 ];
@@ -155,7 +145,6 @@ const locations = [
     "village",
     "country",
     "state",
-    "province",
     "island",
     "continent",
     "mountain",
@@ -163,6 +152,7 @@ const locations = [
     "desert",
     "forest",
     "ocean",
+    "jungle",
     "river",
     "lake",
     "park",
@@ -222,7 +212,20 @@ const verbs = [
     "begin",
     "end",
 ];
-
+const prepositions = [
+    "in",
+    "on",
+    "at",
+    "near",
+    "beside",
+    "between",
+    "above",
+    "below",
+    "behind",
+    "across"
+  ];
+  
+  
 
 //*TEST
 /*
@@ -233,7 +236,9 @@ const locations = ["roof","house"]
 const verbs = ["crawl"]
 */
 
-//What do you call a {adj} {noun} that  {verb} {adverb} past a {location-noun}? - {number} {adj} {noun}
+
+
+//What do you call a {adj} {noun} that {verb}s {adverb} {prepositions} a {location-noun}? - {number} {adj} {noun}
 
 const getRandomElement = (arr) => {
     const index = Math.floor(Math.random() * arr.length);
@@ -256,10 +261,10 @@ const createRndJoke = () => {
     return [
         `What do you call a ${getRandomElement(adjectives)} ${getRandomElement(
             nouns
-        )} that ${getRandomElement(verbs)}s ${getRandomElement(adverbs)} past ${
+        )} that ${getRandomElement(verbs)}s ${getRandomElement(adverbs)} ${getRandomElement(prepositions)} ${
             location[0] === "a" ? "an" : "a"
         } ${location}`,
-        `${Math.floor(Math.random() * 100) + 2} ${getRandomElement(
+        `${Math.floor(Math.random() * 30) + 2} ${getRandomElement(
             adjectives
         )} ${punchNoun}! 🤣👌👍`,
     ];

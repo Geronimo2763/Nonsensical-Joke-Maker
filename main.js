@@ -103,61 +103,52 @@ const adverbs = [
     "almost",
     "very",
     "extremely",
-    "incredibly"
-  ];
-   
-const nouns = [
-    "cloud",
-    "mountain",
-    "ocean",
-    "forest",
-    "river",
+    "incredibly",
+];
+
+const concreteNouns = [
+    "table",
+    "chair",
     "book",
-    "computer",
-    "flower",
+    "pen",
+    "door",
     "car",
+    "tree",
     "house",
+    "phone",
+    "computer",
+    "mountain",
+    "river",
+    "cloud",
+    "sun",
+    "moon",
     "dog",
     "cat",
     "bird",
-    "tree",
-    "sun",
-    "moon",
-    "star",
-    "planet",
-    "galaxy",
-    "earth",
-    "love",
-    "happiness",
-    "sadness",
-    "anger",
-    "fear",
-    "hope",
-    "dream",
-    "memory",
-    "thought",
-    "idea",
-    "music",
-    "art",
-    "dance",
-    "food",
+    "fish",
+    "snake",
+    "apple",
+    "banana",
+    "orange",
+    "grape",
+    "pear",
     "water",
     "fire",
     "earth",
     "air",
-    "time",
-    "space",
-    "chance",
-    "choice",
-    "reason",
-    "emotion",
-    "feeling",
-    "sense",
-    "perception",
-    "reality",
-    "imagination",
-    "universe",
+    "stone",
+    "glass",
+    "metal",
+    "wood",
+    "plastic",
+    "rubber",
+    "shirt",
+    "pants",
+    "hat",
+    "shoes",
+    "watch",
 ];
+
 const locations = [
     "city",
     "town",
@@ -182,7 +173,7 @@ const locations = [
     "hospital",
     "restaurant",
     "airport",
-    "stadium"
+    "stadium",
 ];
 const verbs = [
     "run",
@@ -221,8 +212,6 @@ const verbs = [
     "believe",
     "hope",
     "fear",
-    "want",
-    "need",
     "try",
     "fail",
     "succeed",
@@ -231,7 +220,38 @@ const verbs = [
     "improve",
     "decline",
     "begin",
-    "end"
-  ];
-  
-  
+    "end",
+];
+
+//What do you call a {adj} {noun} that is {verb} {adverb} past a {location-noun}? - {number} {adj} {noun}
+
+const getRandomElement = (arr) => {
+    const index = Math.floor(Math.random() * arr.length);
+    return arr[index];
+};
+
+const createRndJoke = () => {
+    let location = getRandomElement(locations);
+    let punchNoun = getRandomElement(nouns);
+    if (punchNoun[punchNoun.length - 1] === "y") {
+        punchNoun = punchNoun.slice(punchNoun.length - 1) + "ies";
+    } else if (
+        punchNoun[punchNoun.length - 1] !== "s" &&
+        punchNoun[punchNoun.length - 1] !== "es" &&
+        punchNoun[punchNoun.length - 1] !== "ies"
+    ) {
+        punchNoun += "s";
+    }
+    return [
+        `What do you call a ${getRandomElement(adjectives)} ${getRandomElement(
+            nouns
+        )} that ${getRandomElement(verbs)}s ${getRandomElement(adverbs)} past ${
+            location[0] === "a" ? "an" : "a"
+        } ${location}`,
+        `${Math.floor(Math.random() * 100) + 2} ${getRandomElement(
+            adjectives
+        )} ${punchNoun}s! 🤣👌👍`,
+    ];
+};
+
+console.log(createRndJoke());

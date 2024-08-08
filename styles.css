@@ -71,7 +71,6 @@ button:hover {
     margin: 20px;
     transition: opacity 0.15s ease-in-out; 
 }
-
 #punch-line {
     font-size: 1.7rem;
     height: 2em;

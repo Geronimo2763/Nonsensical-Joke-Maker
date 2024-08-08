@@ -22,10 +22,13 @@ body {
     display: flex;
     flex-direction: column;
 }
+h1,header{
+    overflow-y:hidden;
+}
 
 h1 {
     text-align: center;
-    overflow:hidden;
+    
     font-size: 3rem;
     
     font-weight: bolder;

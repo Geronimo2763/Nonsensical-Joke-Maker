@@ -238,7 +238,7 @@ const verbs = ["crawl"]
 
 
 
-//What do you call a {adj} {noun} that {verb}s {adverb} {prepositions} a {location-noun}? - {number} {adj} {noun}
+//What do you call a {adj} {noun} that {verb}s {adverb} {preposition} a {location-noun}? - {number} {adj} {noun}
 
 const getRandomElement = (arr) => {
     const index = Math.floor(Math.random() * arr.length);
@@ -270,6 +270,9 @@ const createRndJoke = () => {
     ];
 };
 
+/*
 const joke = createRndJoke();
 console.log(joke[0]+"...");
 console.log(joke[1])
+*/
+

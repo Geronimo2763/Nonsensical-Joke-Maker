@@ -26,6 +26,7 @@ body {
 h1 {
     text-align: center;
     font-size: 3rem;
+    
     font-weight: bolder;
     flex-grow: 1;
     
@@ -50,22 +51,27 @@ button:hover {
     
     display: flex;
     flex-direction: column;
-    
-    padding: 5rem;
+    height: 380px;
+    padding:5rem 0;
     justify-content: center;
     align-items: center;
 
 }
-
-.joke {
+#joke-button{
+    min-width: 17em;   
+}
+#joke {
     font-size: 2.4rem;
     margin: 20px;
+    transition: opacity 0.15s ease-in-out; 
+
 }
 
-.punch-line {
+#punch-line {
     font-size: 1.7rem;
-    font-style: italic;
-    font-weight: 250;
+    height: 2em;
+    transition: opacity 0.15s ease-in-out; 
+    font-weight: 350;
 }
 
 
@@ -81,4 +87,11 @@ main{
     *{
         font-size: 12px;
     }
+}
+
+@media only screen and (min-width:2561px){
+    *{
+        font-size: 20px;
+    }
+
 }

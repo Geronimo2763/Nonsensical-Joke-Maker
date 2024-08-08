@@ -64,6 +64,7 @@ button:hover {
 }
 #joke-button{
     min-width: 17em;   
+    margin-top:3rem;
 }
 #joke {
     font-size: 2.4rem;
